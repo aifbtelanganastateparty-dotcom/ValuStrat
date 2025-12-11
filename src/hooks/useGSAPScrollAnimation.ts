@@ -18,6 +18,18 @@ interface GSAPScrollAnimationOptions {
   delay?: number;
 }
 
+const canUseAnimations = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return false;
+  }
+
+  if (typeof navigator !== 'undefined' && navigator.userAgent) {
+    return !navigator.userAgent.toLowerCase().includes('jsdom');
+  }
+
+  return true;
+};
+
 /**
  * Custom hook for GSAP scroll-triggered animations
  * Provides smooth, performant animations similar to Webflow
@@ -30,6 +42,8 @@ export const useGSAPScrollAnimation = (
   const animationRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -97,6 +111,8 @@ export const useFadeInUp = (delay: number = 0) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -138,6 +154,8 @@ export const useSlideIn = (
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -189,6 +207,8 @@ export const useStaggeredGSAP = (
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -239,6 +259,8 @@ export const useScrollActiveState = (
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -296,6 +318,8 @@ export const useParallax = (
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -340,6 +364,8 @@ export const useScaleOnScroll = (
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -377,6 +403,8 @@ export const useTextReveal = (delay: number = 0.05) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const element = elementRef.current;
     if (!element) return;
 
@@ -428,6 +456,8 @@ export const useNavbarScroll = (scrollThreshold: number = 50) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (!canUseAnimations()) return;
+
     const navbar = navbarRef.current;
     if (!navbar) return;
 

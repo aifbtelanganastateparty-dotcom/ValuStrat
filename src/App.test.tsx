@@ -2,8 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders hero headline and contact CTA', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', {
+      name: /transforming businesses with/i,
+    })
+  ).toBeInTheDocument();
+
+  expect(screen.getByRole('link', { name: /get started/i })).toBeInTheDocument();
 });
