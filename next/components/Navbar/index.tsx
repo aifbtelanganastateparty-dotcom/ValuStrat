@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const prevPathnameRef = useRef(pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +22,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close menu when pathname changes (navigation occurred)
   useEffect(() => {
-    setIsOpen(false)
+    if (prevPathnameRef.current !== pathname) {
+      prevPathnameRef.current = pathname
+      // Use setTimeout to avoid synchronous setState in effect
+      const timeoutId = setTimeout(() => setIsOpen(false), 0)
+      return () => clearTimeout(timeoutId)
+    }
+    prevPathnameRef.current = pathname
+    return undefined
   }, [pathname])
 
   useEffect(() => {

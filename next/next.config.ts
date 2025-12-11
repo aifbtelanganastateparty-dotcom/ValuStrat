@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: require('path').join(__dirname),
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
