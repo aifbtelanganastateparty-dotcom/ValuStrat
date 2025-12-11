@@ -1,46 +1,147 @@
-# Getting Started with Create React App
+# ValuStrat - Business Technology Solutions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, high-performance website built with Next.js and React, featuring smooth animations and optimized user experience.
 
-## Available Scripts
+## 🚀 Quick Start
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- Node.js 18.x or higher
+- npm or yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Development
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+# Install dependencies
+cd next
+npm install
 
-### `npm test`
+# Run development server
+npm run dev
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-### `npm run build`
+### Build for Production
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd next
+npm run build
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+/workspace
+├── next/              # Next.js application (main project)
+│   ├── app/          # Next.js 13+ App Router pages
+│   ├── components/   # React components
+│   ├── hooks/        # Custom React hooks
+│   ├── lib/          # Utility functions and constants
+│   └── public/       # Static assets
+├── src/              # Legacy React app (deprecated)
+└── vercel.json       # Vercel deployment configuration
+```
 
-### `npm run eject`
+## 🌐 Deployment on Vercel
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project is configured for Vercel deployment with the Next.js app as the primary application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Deploy with Vercel CLI
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Deploy
+vercel
+```
 
-## Learn More
+### Deploy via Git Integration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Push your code to GitHub/GitLab/Bitbucket
+2. Import the repository in Vercel
+3. The `vercel.json` configuration will automatically:
+   - Set the root directory to `next/`
+   - Use the Next.js framework
+   - Run the correct build commands
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Manual Configuration (if needed)
+
+If you need to configure manually in Vercel dashboard:
+
+- **Framework Preset**: Next.js
+- **Root Directory**: `next`
+- **Build Command**: `npm run build`
+- **Output Directory**: `.next`
+- **Install Command**: `npm install`
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules
+- **Animations**: Framer Motion
+- **Deployment**: Vercel
+
+## 📝 Scripts
+
+```bash
+# Development
+npm run dev          # Start development server
+
+# Production
+npm run build        # Build for production
+npm start            # Start production server
+
+# Quality
+npm run lint         # Run ESLint
+```
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file in the `next/` directory:
+
+```env
+# Add your environment variables here
+```
+
+## 📦 Features
+
+- ⚡ Server-side rendering (SSR) and Static Site Generation (SSG)
+- 🎨 Modern, responsive design
+- 🚀 Optimized performance
+- 🎭 Smooth animations with Framer Motion
+- 📱 Mobile-first approach
+- ♿ Accessibility focused
+- 🔍 SEO optimized
+
+## 🐛 Troubleshooting
+
+### Vercel Deployment Issues
+
+If you encounter issues deploying to Vercel:
+
+1. Ensure `vercel.json` exists in the root directory
+2. Verify the `next/` directory contains all necessary files
+3. Check that `package.json` and `package-lock.json` exist in `next/`
+4. Review Vercel build logs for specific errors
+
+### Build Errors
+
+```bash
+# Clear Next.js cache
+cd next
+rm -rf .next node_modules
+npm install
+npm run build
+```
+
+## 📄 License
+
+All rights reserved.
+
+## 🤝 Support
+
+For support, email contact@valuestrat.com or open an issue in the repository.

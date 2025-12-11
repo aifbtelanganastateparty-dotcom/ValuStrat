@@ -1,154 +1,84 @@
-# ValuStrat - Next.js Website
+# ValuStrat Next.js Application
 
-A modern, responsive website built with Next.js 15, React 19, TypeScript, and Framer Motion.
-
-## Features
-
-- ⚡ **Next.js 15** with App Router
-- 🎨 **Modern UI** with smooth animations and blur effects
-- 📱 **Fully Responsive** design
-- ♿ **Accessible** components with ARIA labels
-- 🎭 **Framer Motion** for smooth animations
-- 🔒 **Error Boundaries** for error handling
-- 📊 **SEO Optimized** with metadata
-- 🎯 **TypeScript** for type safety
-
-## Tech Stack
-
-- **Framework**: Next.js 15
-- **React**: 19.0.0
-- **TypeScript**: 5.0.0
-- **Animations**: Framer Motion 11.0.0
-- **Styling**: CSS Modules
-- **Fonts**: Poppins, DM Sans (Google Fonts)
+The main ValuStrat website built with Next.js 15.
 
 ## Getting Started
 
-### Prerequisites
+### Development
 
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Navigate to the project directory:
-```bash
-cd next
-```
-
-2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Create a `.env.local` file (optional):
-```bash
-cp .env.example .env.local
-```
-
-4. Run the development server:
-```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
 
 ## Project Structure
 
 ```
 next/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx        # Root layout with metadata
-│   ├── page.tsx          # Home page
-│   ├── globals.css       # Global styles
-│   ├── about/            # About page
-│   ├── contact/          # Contact page
-│   ├── services/         # Services page
-│   └── ...               # Other pages
-├── components/           # React components
-│   ├── Navbar/          # Navigation component
-│   ├── Hero/            # Hero section
-│   ├── Services/        # Services section
-│   ├── Footer/          # Footer component
-│   └── ErrorBoundary/   # Error boundary
-├── lib/                 # Utilities and constants
-│   └── constants.ts     # App constants
-└── public/              # Static assets
+├── app/              # Next.js App Router
+│   ├── layout.tsx   # Root layout
+│   ├── page.tsx     # Home page
+│   ├── about/       # About page
+│   ├── blog/        # Blog page
+│   ├── careers/     # Careers page
+│   ├── case-studies/
+│   ├── contact/     # Contact page
+│   ├── industries/  
+│   └── services/    # Services page
+├── components/       # Reusable React components
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+├── public/          # Static files
+└── styles/          # Global styles
 ```
 
-## Available Scripts
+## Technologies
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+- Next.js 15.5.7
+- React 19
+- TypeScript 5
+- Framer Motion 11
+- CSS Modules
 
 ## Key Features
 
-### Components
+- Server-side rendering (SSR)
+- Static site generation (SSG)
+- Optimized images and fonts
+- Smooth animations
+- Responsive design
+- SEO optimized
+- Performance optimized
 
-- **Navbar**: Responsive navigation with mobile menu
-- **Hero**: Animated hero section with parallax effects
-- **Services**: Service cards with hover animations
-- **Footer**: Footer with company info and links
-- **ErrorBoundary**: Error handling component
+## Scripts
 
-### Pages
-
-- Home (`/`)
-- About (`/about`)
-- Services (`/services`)
-- Contact (`/contact`)
-- Industries (`/industries`)
-- Case Studies (`/case-studies`)
-- Blog (`/blog`)
-- Careers (`/careers`)
-- 404 (`/not-found`)
-
-## Styling
-
-The project uses CSS Modules for component-scoped styling. Global styles and CSS variables are defined in `app/globals.css`.
-
-### CSS Variables
-
-- Colors: `--orange-red`, `--black`, `--white`, `--grey`, etc.
-- Fonts: `--poppins`, `--dm-sans`
-- Spacing: `--spacing-xs` through `--spacing-3xl`
-- Shadows: `--shadow-sm` through `--shadow-xl`
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
 ## Environment Variables
 
-See `.env.example` for available environment variables.
+Create `.env.local` for environment variables:
+
+```env
+# Add your environment variables
+NEXT_PUBLIC_API_URL=
+```
 
 ## Deployment
 
-### Vercel (Recommended)
+This app is configured for Vercel deployment. The parent directory contains `vercel.json` with the correct configuration.
 
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Vercel will automatically detect Next.js and configure the build
-
-### Other Platforms
-
-```bash
-npm run build
-npm run start
-```
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-All Rights Reserved - ValuStrat © 2025
+For manual deployment:
+1. Run `npm run build` to create production build
+2. Deploy the `.next` folder to your hosting provider
