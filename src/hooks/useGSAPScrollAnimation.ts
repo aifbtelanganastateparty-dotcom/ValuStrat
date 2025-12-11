@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -36,10 +36,11 @@ const canUseAnimations = () => {
  */
 export const useGSAPScrollAnimation = (
   animationConfig: gsap.TweenVars,
-  options: GSAPScrollAnimationOptions = {}
+  options?: GSAPScrollAnimationOptions
 ) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | null>(null);
+  const memoizedOptions = useMemo(() => options ?? {}, [options]);
 
   useEffect(() => {
     if (!canUseAnimations()) return;
@@ -56,7 +57,7 @@ export const useGSAPScrollAnimation = (
       markers = false,
       once = true,
       delay = 0,
-    } = options;
+    } = memoizedOptions;
 
     // Set initial state if not already set
     if (!scrub) {
@@ -99,7 +100,7 @@ export const useGSAPScrollAnimation = (
         }
       });
     };
-  }, []);
+  }, [animationConfig, memoizedOptions]);
 
   return { ref: elementRef };
 };
@@ -201,10 +202,11 @@ export const useSlideIn = (
  * Hook for staggered animations (multiple elements)
  */
 export const useStaggeredGSAP = (
-  animationConfig: gsap.TweenVars = {},
+  animationConfig?: gsap.TweenVars,
   staggerDelay: number = 0.1
 ) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const memoizedAnimationConfig = useMemo(() => animationConfig ?? {}, [animationConfig]);
 
   useEffect(() => {
     if (!canUseAnimations()) return;
@@ -234,7 +236,7 @@ export const useStaggeredGSAP = (
           duration: 0.8,
           ease: 'power2.out',
           stagger: staggerDelay,
-          ...animationConfig,
+          ...memoizedAnimationConfig,
         });
       },
     });
@@ -242,7 +244,7 @@ export const useStaggeredGSAP = (
     return () => {
       trigger.kill();
     };
-  }, [staggerDelay]);
+  }, [memoizedAnimationConfig, staggerDelay]);
 
   return { ref: containerRef };
 };
