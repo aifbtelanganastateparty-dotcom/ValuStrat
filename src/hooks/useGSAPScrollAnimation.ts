@@ -85,7 +85,7 @@ export const useGSAPScrollAnimation = (
         }
       });
     };
-  }, []);
+  }, [animationConfig, options]);
 
   return { ref: elementRef };
 };
@@ -222,7 +222,7 @@ export const useStaggeredGSAP = (
     return () => {
       trigger.kill();
     };
-  }, [staggerDelay]);
+  }, [staggerDelay, animationConfig]);
 
   return { ref: containerRef };
 };
