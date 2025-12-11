@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className={styles.container}>
           <h1 className={styles.title}>Contact Us</h1>
           <p className={styles.description}>
-            Get in touch with our team. We'd love to hear from you and discuss how we can help transform
+            Get in touch with our team. We&apos;d love to hear from you and discuss how we can help transform
             your business with innovative technology solutions.
           </p>
 

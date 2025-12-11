@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -21,8 +21,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close menu when pathname changes
+  const prevPathname = useRef(pathname)
   useEffect(() => {
-    setIsOpen(false)
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsOpen(false)
+    }
   }, [pathname])
 
   useEffect(() => {
