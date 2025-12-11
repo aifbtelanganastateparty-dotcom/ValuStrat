@@ -1,7 +1,10 @@
 import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Ensure Next.js can trace files that live outside this /next folder (monorepo root)
+  outputFileTracingRoot: path.join(__dirname, '..'),
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
