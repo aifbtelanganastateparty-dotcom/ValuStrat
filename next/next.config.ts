@@ -1,8 +1,9 @@
 import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  outputFileTracingRoot: require('path').join(__dirname),
+  outputFileTracingRoot: path.join(__dirname),
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
