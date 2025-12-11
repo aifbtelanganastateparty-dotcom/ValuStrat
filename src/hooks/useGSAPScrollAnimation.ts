@@ -85,6 +85,7 @@ export const useGSAPScrollAnimation = (
         }
       });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { ref: elementRef };
@@ -222,6 +223,7 @@ export const useStaggeredGSAP = (
     return () => {
       trigger.kill();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [staggerDelay]);
 
   return { ref: containerRef };

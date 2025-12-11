@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useRef, useState } from 'react'
+import { ReactNode, useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 
@@ -18,7 +18,6 @@ const MagneticButton = ({
   className = '',
 }: MagneticButtonProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -43,13 +42,8 @@ const MagneticButton = ({
   }
 
   const handleMouseLeave = () => {
-    setIsHovered(false)
     x.set(0)
     y.set(0)
-  }
-
-  const handleMouseEnter = () => {
-    setIsHovered(true)
   }
 
   const content = (
@@ -57,7 +51,6 @@ const MagneticButton = ({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
       style={{ x: xSpring, y: ySpring }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -79,4 +72,3 @@ const MagneticButton = ({
 }
 
 export default MagneticButton
-

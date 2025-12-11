@@ -42,7 +42,7 @@ class ErrorBoundary extends Component<Props, State> {
             }}
           >
             <h1>Something went wrong</h1>
-            <p>We're sorry for the inconvenience. Please try refreshing the page.</p>
+            <p>We&apos;re sorry for the inconvenience. Please try refreshing the page.</p>
             <button
               onClick={() => {
                 this.setState({ hasError: false, error: null })

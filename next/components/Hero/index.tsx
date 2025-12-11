@@ -19,6 +19,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true)
   }, [])
 
@@ -42,6 +43,7 @@ const Hero = () => {
     }
 
     if (videoEl.readyState >= 2) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVideoReady(true)
     } else {
       attemptPlay()
