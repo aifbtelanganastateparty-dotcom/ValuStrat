@@ -3,7 +3,8 @@ import path from 'path'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  outputFileTracingRoot: path.join(__dirname),
+  // Only set outputFileTracingRoot if not on Vercel (Vercel handles this automatically)
+  ...(!process.env.VERCEL && { outputFileTracingRoot: path.join(__dirname) }),
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
